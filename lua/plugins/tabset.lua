@@ -31,6 +31,10 @@ return {
           tabwidth = 2,
           expandtab = false,
         },
+        puppet = {
+          tabwidth = 2,
+          expandtab = true,
+        },
         zig = {
           tabwidth = 4,
           expandtab = true,
