@@ -15,7 +15,7 @@ return {
 
       lint.linters["puppet-lint"].args = {
         "--no-autoloader_layout-check",
-        -- "--no-documentation-check",
+        "--no-documentation-check",
         "--log-format",
         "%{path}:%{line}:%{column}:%{kind}:%{check}:%{message}",
       }
