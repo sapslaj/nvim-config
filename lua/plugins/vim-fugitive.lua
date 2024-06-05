@@ -17,7 +17,7 @@ local aliases = {
     "ga", "Git add",
   },
   {
-    "gaa", "Git add -a",
+    "gaa", "Git add --all",
   },
   {
     "gb", "Git branch",
