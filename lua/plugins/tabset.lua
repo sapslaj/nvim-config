@@ -11,11 +11,7 @@ return {
           tabwidth = 2,
           expandtab = false,
         },
-        python = {
-          tabwidth = 4,
-          expandtab = true,
-        },
-        rust = {
+        java = {
           tabwidth = 4,
           expandtab = true,
         },
@@ -23,8 +19,8 @@ return {
           tabwidth = 4,
           expandtab = true,
         },
-        java = {
-          tabwidth = 4,
+        lua = {
+          tabwidth = 2,
           expandtab = true,
         },
         make = {
@@ -33,6 +29,14 @@ return {
         },
         puppet = {
           tabwidth = 2,
+          expandtab = true,
+        },
+        python = {
+          tabwidth = 4,
+          expandtab = true,
+        },
+        rust = {
+          tabwidth = 4,
           expandtab = true,
         },
         zig = {
