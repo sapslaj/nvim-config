@@ -12,7 +12,7 @@ return {
         python = { "ruff_format", "ruff_fix" },
         terraform = { "terraform_fmt" },
         tf = { "terraform_fmt" },
-        typescript = { "prettier" },
+        typescript = { { "dprint", "prettier" } },
       },
       formatters = {
         shfmt = {
