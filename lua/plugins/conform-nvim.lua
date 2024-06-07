@@ -6,6 +6,7 @@ return {
         ["terraform-vars"] = { "terraform_fmt" },
         go = { "gofmt", "gci" },
         javascript = { "prettier" },
+        lua = { "stylua" },
         markdown = { "mdformat" },
         puppet = { "puppet-lint" },
         python = { "ruff_format", "ruff_fix" },
