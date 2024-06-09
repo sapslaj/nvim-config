@@ -80,14 +80,6 @@ m(
   { desc = "Redraw / Clear hlsearch / Diff Update" }
 )
 
--- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
-m("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
-m("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
-m("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
-m("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev Search Result" })
-m("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
-m("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
-
 -- better indenting
 m("v", "<", "<gv")
 m("v", ">", ">gv")
