@@ -60,6 +60,55 @@ return {
         }, {
           { name = "buffer" },
         }),
+        formatting = {
+          format = function(_, item)
+            local icons = {
+              Array = " ",
+              Boolean = "󰨙 ",
+              Class = " ",
+              Codeium = "󰘦 ",
+              Color = " ",
+              Control = " ",
+              Collapsed = " ",
+              Constant = "󰏿 ",
+              Constructor = " ",
+              Copilot = " ",
+              Enum = " ",
+              EnumMember = " ",
+              Event = " ",
+              Field = " ",
+              File = " ",
+              Folder = " ",
+              Function = "󰊕 ",
+              Interface = " ",
+              Key = " ",
+              Keyword = " ",
+              Method = "󰊕 ",
+              Module = " ",
+              Namespace = "󰦮 ",
+              Null = " ",
+              Number = "󰎠 ",
+              Object = " ",
+              Operator = " ",
+              Package = " ",
+              Property = " ",
+              Reference = " ",
+              Snippet = " ",
+              String = " ",
+              Struct = "󰆼 ",
+              TabNine = "󰏚 ",
+              Text = " ",
+              TypeParameter = " ",
+              Unit = " ",
+              Value = " ",
+              Variable = "󰀫 ",
+            }
+            if icons[item.kind] then
+              item.kind = icons[item.kind] .. item.kind
+            end
+            return item
+          end,
+        },
         experimental = {
           ghost_text = {
             hl_group = "CmpGhostText",
