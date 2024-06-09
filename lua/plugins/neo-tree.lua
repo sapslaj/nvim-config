@@ -1,29 +1,35 @@
-local Util = require("lazyvim.util")
-
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    cmd = "Neotree",
     keys = {
-      {
-        "<leader>fE",
-        function()
-          require("neo-tree.command").execute({ toggle = true, dir = require("lazyvim.util").get_root() })
-        end,
-        desc = "Explorer NeoTree (root dir)",
-      },
       {
         "<leader>fe",
         function()
           require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
         end,
-        desc = "Explorer NeoTree (cwd)",
+        desc = "Explorer NeoTree",
       },
-      { "<leader>E", "<leader>fE", desc = "Explorer NeoTree (root dir)", remap = true },
-      { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (cwd)", remap = true },
+      { "<leader>e", "<leader>fe", desc = "Explorer NeoTree", remap = true },
     },
+    deactivate = function()
+      vim.cmd([[Neotree close]])
+    end,
+    init = function()
+      if vim.fn.argc(-1) == 1 then
+        local stat = vim.uv.fs_stat(vim.fn.argv(0))
+        if stat and stat.type == "directory" then
+          require("neo-tree")
+        end
+      end
+    end,
     opts = {
+      sources = { "filesystem", "buffers", "git_status", "document_symbols" },
       filesystem = {
         bind_to_cwd = true,
+        follow_current_file = { enabled = true },
+        use_libuv_file_watcher = true,
         filtered_items = {
           visible = true,
           hide_dotfiles = false,
@@ -32,8 +38,26 @@ return {
       },
       window = {
         mappings = {
+          ["<space>"] = "none",
           ["<bs>"] = "none",
           ["^"] = "navigate_up",
+        },
+      },
+      default_component_configs = {
+        indent = {
+          with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
+          expander_collapsed = "",
+          expander_expanded = "",
+          expander_highlight = "NeoTreeExpander",
+        },
+      },
+    },
+    legendary = {
+      commands = {
+        {
+          ":Neotree",
+          description = "Open Neo-tree with optional parameters",
+          unfinished = true,
         },
       },
     },

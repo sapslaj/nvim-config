@@ -1,4 +1,4 @@
-local Util = require("lazyvim.util")
+local Util = require("util")
 local java_filetypes = { "java" }
 local function extend_or_override(config, custom, ...)
   if type(custom) == "function" then

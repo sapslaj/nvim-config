@@ -1,7 +1,7 @@
 return {
   {
     "mrjones2014/legendary.nvim",
-    version = "v2.13.6",
+    version = "v2.13.11",
     -- since legendary.nvim handles all your keymaps/commands,
     -- its recommended to load legendary.nvim before other plugins
     priority = 10000,

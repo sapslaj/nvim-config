@@ -1,6 +1,11 @@
+local Util = require("util")
+
 return {
   {
     "stevearc/conform.nvim",
+    dependencies = { "mason.nvim" },
+    lazy = true,
+    cmd = "ConformInfo",
     opts = {
       formatters_by_ft = {
         ["terraform-vars"] = { "terraform_fmt" },
@@ -17,6 +22,14 @@ return {
       formatters = {
         shfmt = {
           prepend_args = { "-i", "2" },
+        },
+      },
+    },
+    legendary = {
+      commands = {
+        {
+          ":ConformInfo",
+          description = "Show configured and available formatters",
         },
       },
     },
