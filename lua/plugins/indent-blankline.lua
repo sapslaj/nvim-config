@@ -1,6 +1,7 @@
 return {
   {
     "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
     event = { "BufReadPost", "BufNewFile" },
     config = function()
       local highlight = {
@@ -38,6 +39,7 @@ return {
             "dashboard",
             "neo-tree",
             "Trouble",
+            "trouble",
             "lazy",
             "mason",
             "notify",

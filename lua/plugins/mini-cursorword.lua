@@ -1,6 +1,6 @@
 return {
   {
-    "windwp/nvim-ts-autotag",
+    "echasnovski/mini.cursorword",
     event = "VeryLazy",
     opts = {},
   },

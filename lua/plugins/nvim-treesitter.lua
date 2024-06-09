@@ -1,9 +1,10 @@
+local Util = require("util")
+
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-    },
+    version = false,
+    build = ":TSUpdate",
     opts = {
       ensure_installed = {
         "astro",
@@ -93,13 +94,55 @@ return {
         "yaml",
         "zig",
       },
-      context_commentstring = {
+      highlight = {
         enable = true,
       },
       indent = {
         enable = true,
         disable = {
           "yaml",
+        },
+      },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<C-space>",
+          node_incremental = "<C-space>",
+          scope_incremental = false,
+          node_decremental = "<bs>",
+        },
+      },
+      textobjects = {
+        move = {
+          enable = true,
+          goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer" },
+          goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer" },
+          goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer" },
+          goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
+        },
+      },
+    },
+    config = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        opts.ensure_installed = Util.dedup(opts.ensure_installed)
+      end
+      require("nvim-treesitter.configs").setup(opts)
+    end,
+    legendary = {
+      commands = {
+        {
+          ":TSInstall <language>",
+          description = "Install Treesitter parser for <language>",
+          unfinished = true,
+        },
+        {
+          ":TSInstallInfo",
+          description = "Print available languages and their installation status.",
+        },
+        {
+          ":TSUpdate <language>",
+          description = "Update parser for <language> or 'all'.",
+          unfinished = true,
         },
       },
     },

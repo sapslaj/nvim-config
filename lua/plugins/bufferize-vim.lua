@@ -1,5 +1,0 @@
-return {
-  {
-    "AndrewRadev/bufferize.vim",
-  }
-}

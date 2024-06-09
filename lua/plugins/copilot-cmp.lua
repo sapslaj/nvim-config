@@ -2,7 +2,7 @@ if vim.loop.os_uname().sysname ~= "Darwin" then
   return {}
 end
 
-local Util = require("lazyvim.util")
+local Util = require("util")
 
 return {
   {
