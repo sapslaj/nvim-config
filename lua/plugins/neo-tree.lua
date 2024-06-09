@@ -25,10 +25,21 @@ return {
       end
     end,
     opts = {
-      sources = { "filesystem", "buffers", "git_status", "document_symbols" },
+      sources = {
+        "filesystem",
+        "buffers",
+        "git_status",
+        "document_symbols",
+      },
+      open_files_do_not_replace_types = {
+        "trouble",
+        "qf",
+      },
       filesystem = {
         bind_to_cwd = true,
-        follow_current_file = { enabled = true },
+        follow_current_file = {
+          enabled = true,
+        },
         use_libuv_file_watcher = true,
         filtered_items = {
           visible = true,
