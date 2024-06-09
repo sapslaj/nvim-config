@@ -27,6 +27,7 @@ return {
       end
       if has("npm") then
         table.insert(ensure_installed, "json-lsp")
+        table.insert(ensure_installed, "vtsls")
       end
       if has("pip") then
         table.insert(ensure_installed, "basedpyright")
