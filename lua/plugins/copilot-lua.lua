@@ -1,12 +1,8 @@
-if vim.loop.os_uname().sysname ~= "Darwin" then
-  return {}
-end
-
 return {
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
-    -- build = ":Copilot auth",
+    enabled = vim.loop.os_uname().sysname ~= "Darwin",
     opts = {
       panel = {
         enabled = true,
