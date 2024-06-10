@@ -32,24 +32,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
 })
 
--- maybe fixed with folke/ts-comments.nvim
--- https://neovim.discourse.group/t/commentstring-for-terraform-files-not-set/4066
--- vim.api.nvim_create_autocmd("FileType", {
---   group = augroup("FixTerraformCommentString"),
---   callback = function(ev)
---     vim.bo[ev.buf].commentstring = "# %s"
---   end,
---   pattern = { "terraform", "hcl" },
--- })
---
--- vim.api.nvim_create_autocmd("FileType", {
---   group = augroup("FixPuppetCommentString"),
---   callback = function(ev)
---     vim.bo[ev.buf].commentstring = "# %s"
---   end,
---   pattern = { "puppet" },
--- })
-
 -- Enable linebreak in Markdown
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown" },
