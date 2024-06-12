@@ -20,6 +20,9 @@ local function m(mode, lhs, rhs, opts)
   Legendary.keymap(keymap)
 end
 
+-- disable F1 help
+vim.keymap.set({"n", "x", "i"}, "<F1>", "<nop>")
+
 -- which-key groups
 g("g", "+goto")
 g("gs", "+surround")
