@@ -8,6 +8,115 @@ return function()
     return
   end
 
+  Legendary.commands({
+    {
+      ":Lazy",
+      description = "Show plugin list",
+    },
+    {
+      ":Lazy build <plugins>",
+      description = "Rebuild a plugin",
+      unfinished = true,
+    },
+    {
+      ":Lazy check",
+      description = "Check for updates and show the log",
+    },
+    {
+      ":Lazy check [plugins]",
+      description = "Check for updates and show the log",
+      unfinished = true,
+    },
+    {
+      ":Lazy clean",
+      description = "Clean plugins that are no longer needed",
+    },
+    {
+      ":Lazy clean [plugins]",
+      description = "Clean plugins that are no longer needed",
+      unfinished = true,
+    },
+    {
+      ":Lazy clear",
+      description = "Clear finished tasks",
+    },
+    {
+      ":Lazy debug",
+      description = "Show debug information",
+    },
+    {
+      ":Lazy health",
+      description = "Run :checkhealth lazy",
+    },
+    {
+      ":Lazy home",
+      description = "Show plugin list",
+    },
+    {
+      ":Lazy help",
+      description = "Show help",
+    },
+    {
+      ":Lazy install",
+      description = "Install missing plugins",
+    },
+    {
+      ":Lazy install [plugins]",
+      description = "Install missing plugins",
+      unfinished = true,
+    },
+    {
+      ":Lazy load <plugins>",
+      description = "Load a plugin that has not been loaded yet",
+      unfinished = true,
+    },
+    {
+      ":Lazy log",
+      description = "Show recent updates",
+    },
+    {
+      ":Lazy log [plugins]",
+      description = "Show recent updates",
+      unfinished = true,
+    },
+    {
+      ":Lazy profile",
+      description = "Show detailed profiling",
+    },
+    {
+      ":Lazy reload <plugins>",
+      description = "Reload a plugin",
+      unfinished = true,
+    },
+    {
+      ":Lazy restore",
+      description = "Update plugin to state in the lockfile",
+    },
+    {
+      ":Lazy restore [plugins]",
+      description = "Update plugin to state in the lockfile",
+      unfinished = true,
+    },
+    {
+      ":Lazy sync",
+      description = "Run install, clean, and update",
+    },
+    {
+      ":Lazy sync [plugins]",
+      description = "Run install, clean, and update",
+      unfinished = true,
+    },
+    {
+      ":Lazy update",
+      description = "Update plugins",
+    },
+    {
+      ":Lazy update [plugins]",
+      description = "Update plugins",
+      unfinished = true,
+    },
+  })
+
   local LazyNvimConfig = require('lazy.core.config')
   for _, plugin in pairs(LazyNvimConfig.plugins) do
     local keys = vim.tbl_get(plugin or {}, '_', 'handlers', 'keys') or {}
