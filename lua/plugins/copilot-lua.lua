@@ -2,7 +2,7 @@ return {
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
-    enabled = vim.loop.os_uname().sysname ~= "Darwin",
+    enabled = vim.loop.os_uname().sysname == "Darwin",
     opts = {
       panel = {
         enabled = true,

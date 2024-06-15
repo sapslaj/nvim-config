@@ -2,7 +2,7 @@ return {
   {
     "zbirenbaum/copilot-cmp",
     dependencies = "copilot.lua",
-    enabled = vim.loop.os_uname().sysname ~= "Darwin",
+    enabled = vim.loop.os_uname().sysname == "Darwin",
     opts = {},
     config = function(_, opts)
       local copilot_cmp = require("copilot_cmp")
