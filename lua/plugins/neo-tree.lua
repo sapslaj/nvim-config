@@ -61,6 +61,21 @@ return {
           expander_expanded = "",
           expander_highlight = "NeoTreeExpander",
         },
+        file_size = {
+          enabled = false,
+        },
+        type = {
+          enabled = false,
+        },
+        last_modified = {
+          enabled = false,
+        },
+        created = {
+          enabled = false,
+        },
+        symlink_target = {
+          enabled = false,
+        },
       },
     },
     legendary = {
