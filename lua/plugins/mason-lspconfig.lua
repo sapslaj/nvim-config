@@ -144,7 +144,18 @@ return {
             },
           },
         },
-        yamlls = {},
+        yamlls = {
+          settings = {
+            yaml = {
+              schemaStore = {
+                enable = false,
+              },
+              schemas = {
+                ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+              },
+            },
+          },
+        },
       },
       setup = {
         -- clangd = function(_, opts)
