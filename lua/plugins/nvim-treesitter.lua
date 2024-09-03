@@ -36,6 +36,7 @@ return {
         "gowork",
         "graphql",
         "hcl",
+        "helm",
         "html",
         "ini",
         "java",

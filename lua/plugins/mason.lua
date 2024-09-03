@@ -21,6 +21,9 @@ return {
         table.insert(ensure_installed, "goimports")
         table.insert(ensure_installed, "gopls")
       end
+      if has("helm") then
+        table.insert(ensure_installed, "helm-ls")
+      end
       if has("javac") then
         table.insert(ensure_installed, "java-debug-adapter")
         table.insert(ensure_installed, "java-test")
