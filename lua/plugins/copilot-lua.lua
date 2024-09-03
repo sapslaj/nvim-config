@@ -14,6 +14,8 @@ return {
       },
       filetypes = {
         ["*.env"] = false,
+        ["*.env.*"] = false,
+        ["*.secrets"] = false,
         ["*"] = true,
       },
     },
