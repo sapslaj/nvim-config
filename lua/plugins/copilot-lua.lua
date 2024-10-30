@@ -13,9 +13,8 @@ return {
         auto_trigger = true,
       },
       filetypes = {
-        ["*.env"] = false,
-        ["*.env.*"] = false,
-        ["*.secrets"] = false,
+        confini = false,
+        sh = false,
         ["*"] = true,
       },
     },

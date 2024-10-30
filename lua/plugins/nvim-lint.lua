@@ -39,7 +39,16 @@ return {
 
       vim.api.nvim_create_autocmd(opts.events, {
         group = vim.api.nvim_create_augroup("nvim-lint", { clear = true }),
-        callback = Util.debounce(100, function()
+        callback = Util.debounce(100, function(ev)
+          for _, exclude in pairs({
+            "%.env$",
+            "%.env%..$",
+            "%.secrets$",
+          }) do
+            if ev.file:match(exclude) then
+              return
+            end
+          end
           lint.try_lint()
         end),
       })
