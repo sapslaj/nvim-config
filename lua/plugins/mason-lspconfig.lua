@@ -83,6 +83,12 @@ return {
           },
         },
         pyright = {},
+        rust_analyzer = {
+          settings = {
+            ['rust-analyzer'] = {
+            },
+          },
+        },
         terraformls = {
           filetypes = {
             "terraform",

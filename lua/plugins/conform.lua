@@ -13,6 +13,7 @@ return {
         markdown = { "mdformat" },
         puppet = { "puppet-lint" },
         python = { "ruff_format", "ruff_fix" },
+        rust = { "rustfmt" },
         terraform = { "terraform_fmt" },
         tf = { "terraform_fmt" },
         typescript = { { "dprint", "prettier" } },
