@@ -39,3 +39,11 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.cmd("set linebreak")
   end,
 })
+
+-- Undo the garbage that runtime/indent/yaml.vim does
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "yaml" },
+  callback = function()
+    vim.opt_local.indentkeys = "!^F,o,O,0},0],0-"
+  end,
+})
