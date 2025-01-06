@@ -44,6 +44,6 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "yaml" },
   callback = function()
-    vim.opt_local.indentkeys = "!^F,o,O,0},0],0-"
+    vim.opt_local.indentkeys = "!^F,o,O,0},0]"
   end,
 })
