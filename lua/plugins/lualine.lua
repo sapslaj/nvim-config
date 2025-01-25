@@ -45,11 +45,6 @@ return {
               unnamed = "",
             },
           },
-          -- stylua: ignore
-          {
-            function() return require("nvim-navic").get_location() end,
-            cond = function() return package.loaded["nvim-navic"] and require("nvim-navic").is_available() end,
-          },
         },
         lualine_x = {
           {
@@ -61,6 +56,10 @@ return {
             function()
               return vim.o.filetype
             end,
+          },
+          {
+            "encoding",
+            show_bomb = true,
           },
           {
             "diff",
