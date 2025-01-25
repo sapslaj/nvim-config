@@ -1,4 +1,4 @@
-local Terminal = require("util.terminal")
+local Terminal  = require('toggleterm.terminal').Terminal
 local Legendary = require("legendary")
 local WhichKey = require("which-key")
 
@@ -122,16 +122,8 @@ m("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 -- quit
 m("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 
--- floating terminal
-m("n", "<leader>ft", function()
-  Terminal.open()
-end, { desc = "Terminal" })
-m("n", "<C-_>", function()
-  Terminal.open()
-end, { desc = "Terminal" })
-m("n", "<C-_>", function()
-  Terminal.open()
-end, { desc = "Terminal" })
+m("n", "<C-/>", "<cmd>ToggleTerm<cr>", { desc = "ToggleTerm" })
+m("n", "<C-_>", "<cmd>ToggleTerm<cr>", { desc = "ToggleTerm" })
 
 -- Terminal Mappings
 m("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
@@ -139,8 +131,8 @@ m("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to Left Window" })
 m("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to Lower Window" })
 m("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to Upper Window" })
 m("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to Right Window" })
-m("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
-m("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
+m("t", "<C-/>", "<cmd>ToggleTerm<cr>", { desc = "Hide Terminal" })
+m("t", "<c-_>", "<cmd>ToggleTerm<cr>", { desc = "which_key_ignore" })
 
 -- windows
 m("n", "<leader>ww", "<C-W>p", { desc = "Other Window", remap = true })
@@ -186,9 +178,16 @@ m("x", "<leader>csub", ":'<,'>sort ub<cr>", { silent = true, desc = "Sort Unique
 m("x", "<leader>csuB", ":'<,'>sort! ub<cr>", { silent = true, desc = "Sort Unique Lines (binary) Descending" })
 
 -- git
+local lazygit = Terminal:new({
+  cmd = "lazygit",
+  hidden = true,
+  direction = "float",
+})
+
 m("n", "<leader>gg", function()
-  Terminal.open({ "lazygit" }, { esc_esc = false, ctrl_hjkl = false })
+  lazygit:toggle()
 end, { desc = "Lazygit" })
+
 m("n", "<leader>ga", "<cmd>Git add --all<CR>", { desc = "git add --all" })
 m("n", "<leader>gc", "<cmd>Git commit -v<CR>", { desc = "git commit" })
 m("n", "<leader>gl", "<cmd>Git log --oneline --decorate --graph<CR>", { desc = "git log" })

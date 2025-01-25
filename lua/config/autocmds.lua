@@ -47,3 +47,9 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.indentkeys = "!^F,o,O,0},0]"
   end,
 })
+
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function(event)
+    vim.opt_local.spell = false
+  end,
+})
