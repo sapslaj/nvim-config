@@ -190,5 +190,7 @@ end, { desc = "Lazygit" })
 
 m("n", "<leader>ga", "<cmd>Git add --all<CR>", { desc = "git add --all" })
 m("n", "<leader>gc", "<cmd>Git commit -v<CR>", { desc = "git commit" })
+m("n", "<leader>gs", "<cmd>Git<CR>", { desc = "git status/summary" })
+m("n", "<leader>gb", "<cmd>Git blame<CR>", { desc = "git blame" })
 m("n", "<leader>gl", "<cmd>Git log --oneline --decorate --graph<CR>", { desc = "git log" })
 m("n", "<leader>gL", "<cmd>Telescope git_commits<CR>", { desc = "git log (Telescope)" })
