@@ -28,5 +28,21 @@ return {
         end,
       },
     },
+    legendary = {
+      funcs = {
+        {
+          function()
+            local npairs = require("nvim-autopairs")
+            npairs.toggle()
+            if npairs.state.disabled then
+              vim.notify("Disabled auto pairs", "info")
+            else
+              vim.notify("Enabled auto pairs", "info")
+            end
+          end,
+          description = "autopairs - toggle",
+        },
+      },
+    },
   },
 }
