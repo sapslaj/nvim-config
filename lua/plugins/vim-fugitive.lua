@@ -283,6 +283,9 @@ local aliases = {
   {
     "gts", "Git tag -s",
   },
+  {
+    "gpsup", "Gpsup",
+  },
 }
 
 return {
@@ -302,6 +305,16 @@ return {
           end
         },
       },
+      commands = {
+        {
+          ":Gpsup",
+          function()
+            local git_current_branch = vim.fn.system("git branch --show-current")
+            vim.cmd("Git push --set-upstream origin " .. git_current_branch)
+          end,
+          description = "Git push --set-upstream origin {current-branch}"
+        }
+      }
     },
   },
 }
