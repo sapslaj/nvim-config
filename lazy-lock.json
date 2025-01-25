@@ -24,6 +24,7 @@
   "mini.cursorword": { "branch": "main", "commit": "b6fb7e8556b3e3bb09c5cca1937d8e542f8a0261" },
   "mini.indentscope": { "branch": "main", "commit": "f0d7faa064c892b96997810afcddfadc3f2a15b3" },
   "neo-tree.nvim": { "branch": "v3.x", "commit": "29f7c215332ba95e470811c380ddbce2cebe2af4" },
+  "neorepl.nvim": { "branch": "master", "commit": "15f4c4e523e1fbec74766e1967e1c2491df013c9" },
   "noice.nvim": { "branch": "main", "commit": "e5cb20c6e14305d24025ecb77d7d4dd9d61f1a64" },
   "nui.nvim": { "branch": "main", "commit": "322978c734866996274467de084a95e4f9b5e0b1" },
   "nvim-autopairs": { "branch": "master", "commit": "3d02855468f94bf435db41b661b58ec4f48a06b7" },

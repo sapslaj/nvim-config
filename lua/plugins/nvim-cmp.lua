@@ -24,6 +24,18 @@ return {
       end
 
       return {
+        enabled = function()
+          if vim.o.filetype == 'neorepl' then
+            return false
+          end
+          if vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'prompt' then
+            return false
+          end
+          if vim.fn.reg_recording() ~= '' or vim.fn.reg_executing() ~= '' then
+            return false
+          end
+          return true
+        end,
         completion = {
           completeopt = "menu,menuone,noinsert",
         },
