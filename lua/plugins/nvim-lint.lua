@@ -1,5 +1,41 @@
 local Util = require("util")
 
+vim.g.lint_enabled = true
+
+function try_lint(filename)
+  if not vim.g.lint_enabled then
+    return
+  end
+
+  local lint = require("lint")
+
+  if not filename then
+    lint.try_lint()
+    return
+  end
+
+  for _, exclude in pairs({
+    "%.env$",
+    "%.env%..$",
+    "%.secrets$",
+  }) do
+    if filename:match(exclude) then
+      return
+    end
+  end
+  lint.try_lint()
+end
+
+function lint_toggle()
+  if vim.g.lint_enabled then
+    vim.g.lint_enabled = false
+    vim.notify("Disabled lint", "info")
+  else
+    vim.g.lint_enabled = true
+    vim.notify("Enabled lint", "info")
+  end
+end
+
 return {
   {
     "mfussenegger/nvim-lint",
@@ -40,18 +76,38 @@ return {
       vim.api.nvim_create_autocmd(opts.events, {
         group = vim.api.nvim_create_augroup("nvim-lint", { clear = true }),
         callback = Util.debounce(100, function(ev)
-          for _, exclude in pairs({
-            "%.env$",
-            "%.env%..$",
-            "%.secrets$",
-          }) do
-            if ev.file:match(exclude) then
-              return
-            end
-          end
-          lint.try_lint()
+          try_lint(ev.file)
         end),
       })
     end,
+    legendary = {
+      funcs = {
+        {
+          function()
+            lint_toggle()
+          end,
+          description = "lint - toggle"
+        },
+        {
+          function()
+            vim.g.lint_enabled = true
+            try_lint()
+          end,
+          description = "lint - enable"
+        },
+        {
+          function()
+            vim.g.lint_enabled = false
+          end,
+          description = "lint - disable"
+        },
+        {
+          function()
+            try_lint()
+          end,
+          description = "lint - run linting"
+        },
+      },
+    },
   },
 }
