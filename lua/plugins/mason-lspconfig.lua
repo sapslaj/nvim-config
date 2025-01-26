@@ -16,7 +16,42 @@ return {
           },
         },
       },
+      ensure_installed = (function()
+        local function has(...)
+          return vim.fn.executable(...) == 1
+        end
+        local ensure_installed = {
+          "lua-language-server",
+        }
+        if has("clang") then
+          table.insert(ensure_installed, "clangd")
+        end
+        if has("elixir") then
+          table.insert(ensure_installed, "elixirls")
+        end
+        if has("go") then
+          table.insert(ensure_installed, "gopls")
+        end
+        if has("helm") then
+          table.insert(ensure_installed, "helm_ls")
+        end
+        if has("npm") then
+          table.insert(ensure_installed, "jsonls")
+          table.insert(ensure_installed, "vtsls")
+        end
+        if has("uv") or has("pip") then
+          table.insert(ensure_installed, "basedpyright")
+        end
+        if has("cargo") or has("rustc") then
+          table.insert(ensure_installed, "rust_analyzer")
+        end
+        if has("zig") then
+          table.insert(ensure_installed, "zls")
+        end
+        return ensure_installed
+      end)(),
       servers = {
+        basedpyright = {},
         clangd = {
           keys = {
             { "<leader>cR", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
@@ -82,7 +117,6 @@ return {
             },
           },
         },
-        pyright = {},
         rust_analyzer = {
           settings = {
             ['rust-analyzer'] = {
