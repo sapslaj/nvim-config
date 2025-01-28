@@ -34,6 +34,7 @@ return {
       open_files_do_not_replace_types = {
         "trouble",
         "qf",
+        "toggleterm",
       },
       filesystem = {
         bind_to_cwd = true,
