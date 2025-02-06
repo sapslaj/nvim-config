@@ -51,7 +51,26 @@ return {
         return ensure_installed
       end)(),
       servers = {
-        basedpyright = {},
+        basedpyright = {
+          settings = {
+            basedpyright = {
+              analysis = {
+                typeCheckingMode = "basic",
+                -- diagnosticSeverityOverrides = {
+                --   reportAny = false,
+                --   reportUnusedCallResult = false,
+                --   reportMissingTypeArgument = false,
+                --   reportMissingParameterType = false,
+                --   reportUnknownArgumentType = false,
+                --   reportUnknownLambdaType = false,
+                --   reportUnknownMemberType = false,
+                --   reportUnknownParameterType = false,
+                --   reportUnknownVariableType = false
+                -- },
+              },
+            },
+          },
+        },
         clangd = {
           keys = {
             { "<leader>cR", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
