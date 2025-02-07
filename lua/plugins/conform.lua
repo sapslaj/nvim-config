@@ -8,15 +8,18 @@ return {
       formatters_by_ft = {
         ["terraform-vars"] = { "terraform_fmt" },
         go = { "gofmt", "gci" },
-        javascript = { "prettier" },
+        javascript = { "prettier", "dprint", stop_after_first = true },
+        json = { "dprint" },
         lua = { "stylua" },
-        markdown = { "mdformat" },
+        markdown = { "dprint", "mdformat", stop_after_first = true },
         puppet = { "puppet-lint" },
         python = { "ruff_format", "ruff_fix" },
         rust = { "rustfmt" },
         terraform = { "terraform_fmt" },
+        toml = { "dprint" },
         tf = { "terraform_fmt" },
-        typescript = { { "dprint", "prettier" } },
+        typescript = { "prettier", "dprint", stop_after_first = true },
+        yaml = { "prettier", "dprint", stop_after_first = true },
       },
       formatters = {
         shfmt = {
