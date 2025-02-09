@@ -21,7 +21,7 @@ return {
           return vim.fn.executable(...) == 1
         end
         local ensure_installed = {
-          "lua-language-server",
+          "lua_ls",
         }
         if has("clang") then
           table.insert(ensure_installed, "clangd")
