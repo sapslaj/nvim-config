@@ -1,3 +1,5 @@
+local Spinner = require("util.spinner");
+
 return {
   {
     "olimorris/codecompanion.nvim",
@@ -57,5 +59,25 @@ return {
         },
       },
     },
+    config = function (_, opts)
+      require("codecompanion").setup(opts)
+
+      local augroup = vim.api.nvim_create_augroup("CodeCompanionHooks", {})
+
+      vim.api.nvim_create_autocmd({ "User" }, {
+        pattern = "CodeCompanionRequestStarted",
+        group = augroup,
+        callback = function ()
+          Spinner.show()
+        end
+      })
+      vim.api.nvim_create_autocmd({ "User" }, {
+        pattern = "CodeCompanionRequestFinished",
+        group = augroup,
+        callback = function ()
+          Spinner.hide()
+        end
+      })
+    end
   },
 }
