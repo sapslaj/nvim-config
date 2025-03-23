@@ -48,6 +48,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Don't spellcheck terminal buffers
 vim.api.nvim_create_autocmd("TermOpen", {
   callback = function(event)
     vim.opt_local.spell = false

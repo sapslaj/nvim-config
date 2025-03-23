@@ -1,4 +1,6 @@
 return {
+  -- RIP :(
+  -- https://github.com/stevearc/dressing.nvim/issues/190
   {
     "stevearc/dressing.nvim",
     lazy = true,
