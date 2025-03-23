@@ -61,6 +61,8 @@ vim.opt.fillchars = {
   eob = " ",
 }
 
+vim.opt.colorcolumn = { 120 }
+
 vim.opt.list = true
 --vim.opt.listchars:append("eol:↵")
 vim.opt.listchars:append("space:·")

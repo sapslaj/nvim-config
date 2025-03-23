@@ -83,6 +83,16 @@ m(
   { desc = "Redraw / Clear hlsearch / Diff Update" }
 )
 
+m("n", "<leader>ul", function ()
+  local columns = vim.opt.colorcolumn:get() or {}
+  if #columns == 0 and vim.g.colorcolumn ~= nil then
+    vim.opt.colorcolumn = vim.g.colorcolumn
+  else
+    vim.opt.colorcolumn = {}
+    vim.g.colorcolumn = columns
+  end
+end, { desc = "Toggle colorcolumn" })
+
 -- better indenting
 m("v", "<", "<gv")
 m("v", ">", ">gv")
