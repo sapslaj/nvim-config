@@ -12,6 +12,7 @@ return {
       extensions = {
         -- lazy_nvim = true,
         lazy_nvim_legendary = true,
+        codecompanion = true,
         which_key = {
           auto_register = true,
         },
