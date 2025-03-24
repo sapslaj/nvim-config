@@ -32,9 +32,10 @@ return {
         "document_symbols",
       },
       open_files_do_not_replace_types = {
-        "trouble",
+        "fugitive",
         "qf",
         "toggleterm",
+        "trouble",
       },
       filesystem = {
         bind_to_cwd = true,
