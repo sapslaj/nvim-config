@@ -21,13 +21,26 @@ return {
       extensions = { "neo-tree", "lazy" },
       sections = {
         lualine_a = {
-          function()
-            local mode = require("lualine.utils.mode").get_mode()
-            return vim.b["visual_multi"] and mode .. " - MULTI" or mode
-          end,
+          {
+            function()
+              local mode = require("lualine.utils.mode").get_mode()
+              return vim.b["visual_multi"] and mode .. " - MULTI" or mode
+            end,
+          },
+          {
+            function()
+              if vim.fn.reg_recording() ~= "" then
+                return "Recording @" .. vim.fn.reg_recording()
+              else
+                return ""
+              end
+            end,
+          },
         },
         lualine_b = {
-          "branch",
+          {
+            "branch",
+          },
         },
         lualine_c = {
           {
