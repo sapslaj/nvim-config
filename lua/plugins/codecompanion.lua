@@ -44,6 +44,14 @@ return {
       strategies = {
         chat = {
           adapter = "copilot",
+          slash_commands = {
+            ["file"] = {
+              -- callback = "strategies.chat.slash_commands.file",
+              opts = {
+                provider = "fzf_lua",
+              },
+            },
+          },
         },
         inline = {
           adapter = "copilot",
