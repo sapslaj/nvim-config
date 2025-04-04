@@ -32,6 +32,7 @@ return {
         "document_symbols",
       },
       open_files_do_not_replace_types = {
+        "codecompanion",
         "fugitive",
         "qf",
         "toggleterm",
