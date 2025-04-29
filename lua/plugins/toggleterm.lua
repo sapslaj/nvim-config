@@ -13,6 +13,7 @@ return {
     opts = {
       shade_terminals = false,
       size = 20,
+      auto_scroll = false,
     },
   },
 }
