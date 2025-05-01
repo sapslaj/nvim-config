@@ -54,3 +54,16 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.opt_local.spell = false
   end,
 })
+
+-- scrolloff=0 for some types
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "fugitive",
+    "qf",
+    "toggleterm",
+    "trouble",
+  },
+  callback = function ()
+    vim.opt_local.scrolloff = 0
+  end
+})
