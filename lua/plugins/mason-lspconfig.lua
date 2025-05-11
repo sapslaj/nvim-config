@@ -39,6 +39,9 @@ return {
           table.insert(ensure_installed, "jsonls")
           table.insert(ensure_installed, "vtsls")
         end
+        if has("odin") then
+          table.insert(ensure_installed, "ols")
+        end
         if has("uv") or has("pip") then
           table.insert(ensure_installed, "basedpyright")
         end
