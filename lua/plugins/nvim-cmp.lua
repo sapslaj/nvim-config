@@ -64,17 +64,15 @@ return {
           end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
-          { name = "copilot" },
           { name = "lazydev" },
           { name = "nvim_lsp" },
           { name = "path" },
-          { name = "lazydev" },
         }, {
           { name = "buffer" },
         }),
         formatting = {
-          format = function(_, item)
-            local icons = {
+          format = function(entry, item)
+            local kind_icons = {
               Array = " ",
               Boolean = "󰨙 ",
               Class = " ",
@@ -115,8 +113,19 @@ return {
               Value = " ",
               Variable = "󰀫 ",
             }
-            if icons[item.kind] then
-              item.kind = icons[item.kind] .. item.kind
+            if kind_icons[item.kind] then
+              item.kind = kind_icons[item.kind] .. item.kind
+            end
+            local source_icons = {
+              buffer = "󰈙",
+              lazydev = "󰒲 ",
+              path = " ",
+              nvim_lsp = " ",
+            }
+            if source_icons[entry.source.name] then
+              item.menu = string.format('[%s]', source_icons[entry.source.name])
+            else
+              item.menu = string.format('[%s]', entry.source.name)
             end
             return item
           end,
