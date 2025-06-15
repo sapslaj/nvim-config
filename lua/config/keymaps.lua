@@ -29,6 +29,7 @@ g("gs", "surround")
 g("]", "next")
 g("[", "prev")
 g("<leader><tab>", "tabs")
+g("<leader>a", "ai/llm")
 g("<leader>b", "buffer")
 g("<leader>c", "code")
 g("<leader>cs", "sort")
@@ -204,3 +205,18 @@ m("n", "<leader>gs", "<cmd>Git<CR>", { desc = "git status/summary" })
 m("n", "<leader>gb", "<cmd>Git blame<CR>", { desc = "git blame" })
 m("n", "<leader>gl", "<cmd>Git log --oneline --decorate --graph<CR>", { desc = "git log" })
 m("n", "<leader>gL", "<cmd>Telescope git_commits<CR>", { desc = "git log (Telescope)" })
+
+if vim.fn.executable("claude") == 1 then
+  local claude = Terminal:new({
+    cmd = "claude",
+    hidden = true,
+    direction = "vertical",
+    on_create = function (term)
+      term:resize(80)
+    end,
+  })
+
+  m("n", "<leader>ac", function()
+    claude:toggle()
+  end, { desc = "Claude Code" })
+end
