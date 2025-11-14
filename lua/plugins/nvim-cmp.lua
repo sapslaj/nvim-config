@@ -65,6 +65,7 @@ return {
         }),
         sources = cmp.config.sources({
           { name = "lazydev" },
+          { name = "minuet" },
           { name = "nvim_lsp" },
           { name = "path" },
         }, {
@@ -121,6 +122,7 @@ return {
               lazydev = "󰒲 ",
               path = " ",
               nvim_lsp = " ",
+              minuet = "󰧑 ",
             }
             if source_icons[entry.source.name] then
               item.menu = string.format('[%s]', source_icons[entry.source.name])
