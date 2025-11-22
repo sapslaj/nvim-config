@@ -26,9 +26,9 @@ return {
             },
           },
           openai_fim_compatible = {
-            api_key = "TERM",
+            api_key = "LLAMA_API_KEY",
             name = "Llama.cpp",
-            end_point = "http://aigis.sapslaj.xyz:8012/v1/completions",
+            end_point = "https://minuet.sapslaj.xyz/v1/completions",
             -- The model is set by the llama-cpp server and cannot be altered
             -- post-launch.
             model = "PLACEHOLDER",
