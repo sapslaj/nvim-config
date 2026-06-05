@@ -23,6 +23,15 @@ end
 -- disable F1 help
 vim.keymap.set({"n", "x", "i"}, "<F1>", "<nop>")
 
+vim.keymap.set({"n", "x", "o"}, "<c-space>", function ()
+  require("flash").treesitter({
+    actions = {
+      ["<c-space>"] = "next",
+      ["<BS>"] = "prev"
+    }
+  })
+end)
+
 -- which-key groups
 g("g", "goto")
 g("gs", "surround")
